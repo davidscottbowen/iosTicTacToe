@@ -15,6 +15,7 @@
 		CF9404E21DB51ACF00025AD1 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9404E11DB51ACF00025AD1 /* GameBoardViewController.swift */; };
 		CF9404E41DB5463600025AD1 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9404E31DB5463600025AD1 /* Board.swift */; };
 		CF9404E61DB562A100025AD1 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9404E51DB562A100025AD1 /* GameOverViewController.swift */; };
+		CFF985411DB658E3008B454A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF985401DB658E3008B454A /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CF9404E11DB51ACF00025AD1 /* GameBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
 		CF9404E31DB5463600025AD1 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		CF9404E51DB562A100025AD1 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		CFF985401DB658E3008B454A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CF9404E11DB51ACF00025AD1 /* GameBoardViewController.swift */,
 				CF9404E31DB5463600025AD1 /* Board.swift */,
 				CF9404E51DB562A100025AD1 /* GameOverViewController.swift */,
+				CFF985401DB658E3008B454A /* SettingsViewController.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				CF9404E41DB5463600025AD1 /* Board.swift in Sources */,
 				CF9404E21DB51ACF00025AD1 /* GameBoardViewController.swift in Sources */,
 				CF9404E61DB562A100025AD1 /* GameOverViewController.swift in Sources */,
+				CFF985411DB658E3008B454A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +320,7 @@
 				CF9404E01DB5064200025AD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
