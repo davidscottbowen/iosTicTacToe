@@ -31,14 +31,14 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var colorData = defaults.data(forKey: "xColor")
+        var colorData = defaults.data(forKey: xColorKey)
         if let colorData = colorData {
             xColorView.backgroundColor = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor ?? #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
         } else {
             xColorView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
         
-        colorData = defaults.data(forKey: "oColor")
+        colorData = defaults.data(forKey: oColorKey)
         if let colorData = colorData {
             oColorView.backgroundColor = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor ?? #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
         } else {
@@ -69,9 +69,9 @@ class SettingsViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         var colorData = NSKeyedArchiver.archivedData(withRootObject: xColorView.backgroundColor!)
-        defaults.set(colorData, forKey:"xColor")
-        colorData = NSKeyedArchiver.archivedData(withRootObject: xColorView.backgroundColor!)
-        defaults.set(colorData, forKey:"oColor")
+        defaults.set(colorData, forKey: xColorKey)
+        colorData = NSKeyedArchiver.archivedData(withRootObject: oColorView.backgroundColor!)
+        defaults.set(colorData, forKey: oColorKey)
         defaults.synchronize()
     }
     

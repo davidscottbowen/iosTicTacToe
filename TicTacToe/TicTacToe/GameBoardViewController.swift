@@ -8,6 +8,9 @@
 
 import UIKit
 
+let xColorKey = "xColor"
+let oColorKey = "oColor"
+
 class GameBoardViewController: UIViewController {
     @IBOutlet weak var Button0: UIButton!
     @IBOutlet weak var Button1: UIButton!
@@ -23,12 +26,37 @@ class GameBoardViewController: UIViewController {
     var playerTurn = Player.x
     
     var board = Board()
+    var xColor: UIColor!
+    var oColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        performSegue(withIdentifier: "GameOver", sender: self)
         setupBoard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let userDefaults = UserDefaults.standard
+        var colorData = userDefaults.data(forKey: xColorKey)
+        if let colorData = colorData {
+            xColor = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }else {
+            xColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        
+        colorData = userDefaults.data(forKey: oColorKey)
+        if let colorData = colorData {
+            oColor = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }else {
+            oColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        
+        
+        setButtonColor(Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,9 +77,19 @@ class GameBoardViewController: UIViewController {
             if let button = sender as? UIButton {
                 destVC.winner = board.checkWin(button.tag)
             }
+            setupBoard()
         }
     }
     
+    fileprivate func setButtonColor(_ buttons: UIButton...){
+        for button in buttons {
+            if button.title(for: .normal) == Player.x.rawValue{
+                button.setTitleColor(xColor, for: .normal)
+            } else if button.title(for: .normal) == Player.o.rawValue{
+                button.setTitleColor(oColor, for: .normal)
+            }
+        }
+    }
     
     fileprivate func setupBoard(){
         playerTurn = .x
@@ -72,7 +110,7 @@ class GameBoardViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func buttonTapped(_ sender: AnyObject) {
+    @IBAction func buttonTapped(_ sender: UIButton) {
         print(sender.tag)
         
         if let buttonPlayer = board[sender.tag], buttonPlayer == .none {
@@ -86,6 +124,7 @@ class GameBoardViewController: UIViewController {
                 print(winner)
                 performSegue(withIdentifier: "GameOver", sender: sender)
             }
+            setButtonColor(sender)
         }
 
     }
