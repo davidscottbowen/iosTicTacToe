@@ -8,6 +8,8 @@
 
 import UIKit
 
+// life cycle
+
 class ViewController: UIViewController {
     
     override func viewDidLoad() {

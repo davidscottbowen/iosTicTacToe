@@ -8,6 +8,8 @@
 
 import UIKit
 
+// set up board
+
 class Board: NSObject {
    fileprivate var board = [[Player.none, Player.none, Player.none],
                  [Player.none, Player.none, Player.none],
@@ -39,12 +41,16 @@ class Board: NSObject {
         return (row: index / 3, col: index % 3)
     }
     
+    // resets board
+    
     func resetBoard(){
         board = [[Player.none, Player.none, Player.none],
                  [Player.none, Player.none, Player.none],
                  [Player.none, Player.none, Player.none]]
         turns = 0
     }
+    
+    // check see if winner
     
     func checkWin(_ index: Int) -> Player {
         if index >= 9 {
